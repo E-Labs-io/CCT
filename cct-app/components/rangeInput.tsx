@@ -24,7 +24,7 @@ export default function RangeInput({ onCalculate }: RangeInputProps) {
   const [bit, setBit] = useState<boolean>(false);
   const [interval, setInterval] = useState<number>(200);
 
-  const updateState = (type: any, data: number | boolean) => {
+  const updateState = (type: 1 | 2 | 3 | 4, data: number | boolean) => {
     switch (type) {
       case 1: {
         //set min
@@ -76,10 +76,10 @@ export default function RangeInput({ onCalculate }: RangeInputProps) {
         <div className="calculatorInputLabel">Min</div>
         <div className="calculatorInputInput">
           <Input
-            value={min}
             type="number"
+            value={min.toString()}
             variant="bordered"
-            onValueChange={(data: number) => updateState(1, data)}
+            onValueChange={(data: string) => updateState(1, Number(data))}
           />
           K
         </div>
@@ -89,9 +89,9 @@ export default function RangeInput({ onCalculate }: RangeInputProps) {
         <div className="calculatorInputInput">
           <Input
             type="number"
+            value={max.toString()}
             variant="bordered"
-            value={max}
-            onValueChange={(data: number) => updateState(2, data)}
+            onValueChange={(data: string) => updateState(2, Number(data))}
           />
           K
         </div>
@@ -101,8 +101,8 @@ export default function RangeInput({ onCalculate }: RangeInputProps) {
         <div className="calculatorInputInput">
           8
           <Switch
-            onValueChange={(flag: boolean) => updateState(3, flag)}
             isSelected={bit}
+            onValueChange={(flag: boolean) => updateState(3, flag)}
           />
           16
         </div>
@@ -112,9 +112,9 @@ export default function RangeInput({ onCalculate }: RangeInputProps) {
         <div className="calculatorInputInput">
           <Input
             type="number"
+            value={interval.toString()}
             variant="bordered"
-            value={interval}
-            onValueChange={(data: number) => updateState(4, data)}
+            onValueChange={(data: string) => updateState(4, Number(data))}
           />
           K
         </div>
