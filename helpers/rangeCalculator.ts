@@ -1,6 +1,6 @@
 /** @format */
 
-import { TemperatureData } from "@/components/cctTable";
+import { TemperatureData } from "../components/cctTable";
 
 export interface colourTemperatureCalculator {
   min: number;
