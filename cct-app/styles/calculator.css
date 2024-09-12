@@ -1,0 +1,54 @@
+/** @format */
+
+.calculatorWrapper {
+  height: 100%;
+  width: 100%;
+
+  padding: 5px;
+}
+
+.calculatorContainer {
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.calculatorInputArea {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 5px;
+}
+
+.calculatorInputLine {
+  height: 3rem;
+  width: 80%;
+  padding: 1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.calculatorInputLabel {
+  justify-content: right;
+}
+
+.calculatorInputInput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+}
+
+.calculatorTableArea {
+  height: 100%;
+  width: 100%;
+}
