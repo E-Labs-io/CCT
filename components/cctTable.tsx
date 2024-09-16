@@ -64,7 +64,7 @@ export default function CCTTable({ cctRange }: CCTTableProps) {
                 {(columnKey) => (
                   <TableCell>
                     {getKeyValue(item, columnKey)}
-                    {keyLabel(columnKey!)}
+                    {keyLabel(columnKey as "dmx" | "percent" | "temp")}
                   </TableCell>
                 )}
               </TableRow>

@@ -52,6 +52,7 @@ export default function SingleInput({ onCalculate }: SingleInputProps) {
 
   const onFixtureSelect = (key: any) => {
     const fixture = fixtureList[key.currentKey];
+
     updateState(3, fixture.bits);
     updateState(1, fixture.min);
     updateState(2, fixture.max);

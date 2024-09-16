@@ -32,18 +32,18 @@ export default function colourTemperatureCalculator({
         key,
       },
     ];
+  else
+    for (let i = min; i <= max; i += interval) {
+      const line = {
+        temp: i,
+        dmx: Number(((i - min) / kPerBit).toFixed(3)),
+        percent: Number((((i - min) / (max - min)) * 100).toFixed(3)),
+        key,
+      };
 
-  for (let i = min; i <= max; i += interval) {
-    const line = {
-      temp: i,
-      dmx: Number(((i - min) / kPerBit).toFixed(3)),
-      percent: Number((((i - min) / (max - min)) * 100).toFixed(3)),
-      key,
-    };
-
-    data.push(line);
-    key++;
-  }
+      data.push(line);
+      key++;
+    }
 
   return data;
 }
