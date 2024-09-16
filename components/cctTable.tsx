@@ -8,17 +8,25 @@ import {
   TableColumn,
   TableRow,
   TableCell,
+  getKeyValue,
 } from "@nextui-org/table";
 
 export type TemperatureData = {
   temp: number;
   dmx: number;
   percent: number;
+  key: number;
 };
 
 export interface CCTTableProps {
   cctRange: TemperatureData[];
 }
+
+const headers = [
+  { key: "temp", label: "CCT" },
+  { key: "dmx", label: "DMX" },
+  { key: "percent", label: "%" },
+];
 
 export default function CCTTable({ cctRange }: CCTTableProps) {
   const tableRow = (data: TemperatureData, index: Number) => {
@@ -31,17 +39,40 @@ export default function CCTTable({ cctRange }: CCTTableProps) {
     );
   };
 
+  const keyLabel = (label: "dmx" | "percent" | "temp") => {
+    if (label === "dmx") return "";
+    if (label === "percent") return "%";
+    if (label === "temp") return "K";
+  };
+
   return (
     <div className="calculatorTableArea">
-      <Table removeWrapper aria-label="Example static collection table">
-        <TableHeader>
-          <TableColumn>CCT</TableColumn>
-          <TableColumn>DMX</TableColumn>
-          <TableColumn>%</TableColumn>
+      <Table
+        removeWrapper
+        aria-label="Example static collection table"
+        selectionMode="single"
+      >
+        <TableHeader columns={headers}>
+          {(column) => (
+            <TableColumn key={column.key}>{column.label}</TableColumn>
+          )}
         </TableHeader>
-        <TableBody>
-          {cctRange && cctRange.map((item, key) => tableRow(item, key))}
-        </TableBody>
+        {cctRange ? (
+          <TableBody items={cctRange}>
+            {(item) => (
+              <TableRow key={item.key}>
+                {(columnKey) => (
+                  <TableCell>
+                    {getKeyValue(item, columnKey)}
+                    {keyLabel(columnKey!)}
+                  </TableCell>
+                )}
+              </TableRow>
+            )}
+          </TableBody>
+        ) : (
+          <TableBody emptyContent={"No rows to display."}>{[]}</TableBody>
+        )}
       </Table>
     </div>
   );

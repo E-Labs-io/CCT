@@ -4,36 +4,23 @@
 import "../styles/calculator.css";
 import React, { useState } from "react";
 
-import colourTemperatureCalculator from "../helpers/rangeCalculator";
+import { Tabs, Tab } from "@nextui-org/tabs";
 
-import RangeInput from "../components/rangeInput";
-import CCTTable, { TemperatureData } from "../components/cctTable";
+import RangeCalculator from "./rangeCalculator";
+import SingleCalculator from "./singleCalculator";
 
 export default function Home() {
-  const [tableData, setTableData] = useState<TemperatureData[]>([]);
-
-  const onCalculate = (
-    min: number,
-    max: number,
-    bits: boolean,
-    interval: number
-  ) =>
-    setTableData(
-      colourTemperatureCalculator({
-        min,
-        max,
-        bits,
-        interval,
-      })
-    );
-
   return (
     <section>
       <div className="calculatorWrapper">
-        <div className="calculatorContainer">
-          <RangeInput onCalculate={onCalculate} />
-          <CCTTable cctRange={tableData} />
-        </div>
+        <Tabs aria-label="CCT Calculator" variant="bordered">
+          <Tab key="range" title="CCT Range">
+            <RangeCalculator />
+          </Tab>
+          <Tab key="single" title="Single CCT">
+            <SingleCalculator />
+          </Tab>
+        </Tabs>
       </div>
     </section>
   );
