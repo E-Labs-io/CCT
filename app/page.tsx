@@ -1,26 +1,24 @@
 /** @format */
 "use client";
 
-import "../styles/calculator.css";
+import { Button } from "@nextui-org/button";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-import { Tabs, Tab } from "@nextui-org/tabs";
-
-import RangeCalculator from "./rangeCalculator";
-import SingleCalculator from "./singleCalculator";
-
 export default function Home() {
+  const router = useRouter();
+
   return (
     <section>
-      <div className="calculatorWrapper">
-        <Tabs aria-label="CCT Calculator" variant="bordered">
-          <Tab key="range" title="CCT Range">
-            <RangeCalculator />
-          </Tab>
-          <Tab key="single" title="Single CCT">
-            <SingleCalculator />
-          </Tab>
-        </Tabs>
+      <div className="home-container">
+        <div className="home-title"> PTTRN LIGHTING TOOLS</div>
+        <div className="home-button-container">
+          <div className="home-button-line">
+            <Button variant="bordered" onClick={() => router.push("cct")}>
+              CCT Calculator
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   );

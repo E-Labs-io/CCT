@@ -3,12 +3,16 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + NextUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "PTTRN - Show Tools",
+  description: "A set of tools to assist lighting & show design.",
   navItems: [
     {
-      label: "Calculator",
+      label: "Home",
       href: "/",
+    },
+    {
+      label: "CCT Calculator",
+      href: "/cct",
     },
 
     {
@@ -18,8 +22,12 @@ export const siteConfig = {
   ],
   navMenuItems: [
     {
-      label: "Calculator",
+      label: "Home",
       href: "/",
+    },
+    {
+      label: "CCT Calculator",
+      href: "/cct",
     },
     {
       label: "PTTRN",

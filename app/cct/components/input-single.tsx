@@ -7,7 +7,7 @@ import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { Select, SelectItem } from "@nextui-org/select";
 
-import { fixtureList } from "@/constants/fixtures";
+import { fixtureList } from "@/app/cct/constants/fixtures";
 
 export interface SingleInputProps {
   onCalculate: (

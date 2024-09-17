@@ -5,9 +5,9 @@ import "../styles/calculator.css";
 import React, { useState } from "react";
 
 import colourTemperatureCalculator from "../helpers/rangeCalculator";
-import CCTTable, { TemperatureData } from "../components/cctTable";
+import CCTTable, { TemperatureData } from "./table";
 
-import SingleInput from "@/components/singleInput";
+import SingleInput from "@/app/cct/components/input-single";
 
 export default function SingleCalculator() {
   const [tableData, setTableData] = useState<TemperatureData[]>([]);

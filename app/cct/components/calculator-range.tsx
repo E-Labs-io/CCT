@@ -5,8 +5,8 @@ import "../styles/calculator.css";
 import React, { useState } from "react";
 
 import colourTemperatureCalculator from "../helpers/rangeCalculator";
-import RangeInput from "../components/rangeInput";
-import CCTTable, { TemperatureData } from "../components/cctTable";
+import RangeInput from "./input-range";
+import CCTTable, { TemperatureData } from "./table";
 
 export default function RangeCalculator() {
   const [tableData, setTableData] = useState<TemperatureData[]>([]);
